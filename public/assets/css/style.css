@@ -1,0 +1,62 @@
+body {
+    margin-top: 50px;
+    background-color: grey;
+}
+
+/* brands page */
+.brand-container {
+    background-color: #1A2B3C;
+}
+
+.brand-image > img {
+    display: inline;
+    width: auto;
+}
+
+.block-margin {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.brand-text {
+    font-size: 0.85em;
+}
+
+.brand-item-number {
+    float: left;
+    color: white;
+    background-color: #1A2B3C;
+    border: 1px solid black;
+    width: 20px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.row.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.row.display-flex > div {
+    margin-bottom: 24px;
+}
+
+.thumbnail {
+    height: 100%;
+}
+
+/* extra positioning */
+.thumbnail {
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail .caption {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
