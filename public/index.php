@@ -19,8 +19,8 @@ if ($route == 'accueil') {
     $homeController = new HomeController();
     echo  $homeController->homeAction();
 } elseif ($route == 'marques') {
-    $personController = new BrandController();
-    echo  $personController->brandAction();
+    $brandController = new BrandController();
+    echo  $brandController->brandAction();
 } else {
     echo 'La page n\'existe pas';
 }
