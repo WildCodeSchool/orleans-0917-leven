@@ -1,62 +1,110 @@
-body {
-    margin-top: 50px;
-    background-color: grey;
+/*-*-*-*-* HOME CSS *-*-*-*-*/
+.urban_image{
+    background-image:url(../images/Accueil.jpg);
+    height: calc(100vh - 50px);
+
 }
 
-/* brands page */
-.brand-container {
-    background-color: #1A2B3C;
+.box-title {
+    height: 94.35vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.bg-title {
+    padding-left: 0;
+    padding-right: 0;
+
 }
 
-.brand-image > img {
-    display: inline;
-    width: auto;
-}
-
-.block-margin {
-    margin-top: 20px;
-    margin-bottom: 50px;
-}
-
-.brand-text {
-    font-size: 0.85em;
-}
-
-.brand-item-number {
-    float: left;
-    color: white;
-    background-color: #1A2B3C;
-    border: 1px solid black;
-    width: 20px;
-    margin-right: 5px;
-    margin-bottom: 5px;
+.slogan{
+    font-size: calc(1vw + 2em);
     text-align: center;
-    font-size: 0.8em;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Tenor Sans', sans-serif;
+    font-weight: bold ;
+    font-style: italic;
 }
 
-.row.display-flex {
+.description{
+    text-align: justify;
+    background-color: rgb(26, 43, 60);
+    color : white;
+    padding: 25px;
+    font-family: 'Tenor Sans', sans-serif;
+    font-style: italic;
+    font-size: 1.5vw;
+    margin-top: 250px;
+}
+
+.media h4{
+    text-align: justify;
+}
+.media h3{
+    text-align: center;
+}
+
+.leven{
+    font-family: 'Tenor Sans', sans-serif;
+    font-weight: bold ;
+}
+.presentation
+{
+
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.media-heading{
+    font-size: 5vh;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.element_jumbotron{
+    position: relative;
+    min-height: 1px;
+    /*padding-right: 15px;*/
+    padding-left: 15px;
 }
 
-div.row.display-flex > div {
-    margin-bottom: 24px;
+.history{
+    text-align: justify;
+    padding-left: 20px;
+    font-size:1.5vw;
 }
 
-.thumbnail {
-    height: 100%;
+/*-*-*-*-* END HOME CSS *-*-*-*-*/
+/*-*-*-*-* START MEDIA QUERIES *-*-*-*-*/
+
+@media screen and (max-width: 767px){ /* COL-XS */
+
+    .description{
+        display: none;
+    }
+
 }
 
-/* extra positioning */
-.thumbnail {
-    display: flex;
-    flex-direction: column;
+@media screen and (min-width: 768px) AND (max-width: 991px){ /* COL-SM */
+
+    .description{
+        display: none;
+    }
+
 }
 
-.thumbnail .caption {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+@media screen and (min-width: 992px) AND (max-width: 1199px){ /* COL-MD */
+
+
+
 }
 
+@media screen and (min-width: 1200px) { /* MEDIA FOR COL-LG */
+
+
+}
+
+/*-*-*-*-* END MEDIA QUERIES *-*-*-*-*/
