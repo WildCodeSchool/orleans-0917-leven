@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Tenor+Sans');
+
 
 .logo{
     position: relative; width: 135px;
@@ -15,7 +15,7 @@
 
 }
 .navbar-default .navbar-nav>li>a{
-    color: white;_steven
+    color: white;
     font-size: 1.4em;
     font-family: 'Tenor Sans', sans-serif;
     position: relative;
