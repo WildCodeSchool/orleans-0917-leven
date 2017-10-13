@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8488702e2360edc1f2dd4e0e37d30d1e",
+    "content-hash": "4ccf3d5dc590af820a768efc6f0507e7",
     "packages": [
         {
             "name": "paragonie/random_compat",
