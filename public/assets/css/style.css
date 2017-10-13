@@ -1,3 +1,55 @@
+.logo{
+    position: relative; width: 135px;
+    margin-top: -18px;
+
+
+}
+
+.navbar-default{
+    background-color: rgb(26, 43, 60);
+    border: none;
+    border-radius: 0;
+    padding: 10px;
+
+}
+.navbar-default .navbar-nav>li>a{
+    color: white;
+    font-size: 1.4em;
+    font-family: 'Tenor Sans', sans-serif;
+    position: relative;
+}
+
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
+    color: rgb(153, 188, 229);
+    background-color: rgb(26, 43, 60);
+
+}
+
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+    color: rgb(153, 188, 229);
+    background-color: rgb(26, 43, 60);
+}
+.dropdown-menu {
+    background-color: rgb(26, 43, 60);
+    text-align: center;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu>li>a{
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 1.4em;
+    color: white;
+}
+
 /* brands page */
 .brand-container {
     background-color: #1A2B3C;
