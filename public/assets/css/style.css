@@ -1,9 +1,8 @@
 
 /*-*-*-*-* HOME CSS *-*-*-*-*/
-.urban_image{
+.urban_image {
     background-image:url(../images/Accueil.jpg);
     height: calc(100vh - 50px);
-
 }
 
 .box-title {
@@ -14,13 +13,13 @@
     flex-direction: column;
     justify-content: space-around;
 }
+
 .bg-title {
     padding-left: 0;
     padding-right: 0;
-
 }
 
-.slogan{
+.slogan {
     font-size: calc(1vw + 2em);
     text-align: center;
     margin-top: 0;
@@ -33,71 +32,42 @@
     padding: 25px;
 }
 
-.media h4{
+.media h4 {
     text-align: justify;
 }
-.media h3{
+
+.media h3 {
     text-align: center;
 }
 
-.leven{
+.leven {
     font-family: 'Tenor Sans', sans-serif;
     font-weight: bold ;
 }
-.presentation
-{
 
+.presentation {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.media-heading{
+
+.media-heading {
     font-size: 5vh;
     text-align: center;
     padding-bottom: 20px;
     padding-top: 20px;
 }
-.element_jumbotron{
+
+.element_jumbotron {
     position: relative;
     min-height: 1px;
     /*padding-right: 15px;*/
     padding-left: 15px;
 }
 
-.history{
+.history {
     text-align: justify;
     padding-left: 20px;
     font-size:1.5vw;
 }
-
 /*-*-*-*-* END HOME CSS *-*-*-*-*/
-/*-*-*-*-* START MEDIA QUERIES *-*-*-*-*/
-
-@media screen and (max-width: 767px){ /* COL-XS */
-
-    .description{
-        display: none;
-    }
-
-}
-
-@media screen and (min-width: 768px) AND (max-width: 991px){ /* COL-SM */
-
-    .description{
-        display: none;
-    }
-
-}
-
-@media screen and (min-width: 992px) AND (max-width: 1199px){ /* COL-MD */
-
-
-
-}
-
-@media screen and (min-width: 1200px) { /* MEDIA FOR COL-LG */
-
-
-}
-
-/*-*-*-*-* END MEDIA QUERIES *-*-*-*-*/
