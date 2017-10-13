@@ -24,5 +24,3 @@ if ($route == 'accueil') {
 } else {
     echo 'La page n\'existe pas';
 }
-
-exit();
