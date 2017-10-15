@@ -50,6 +50,79 @@
     color: white;
 }
 
+/*-*-*-*-* HOME CSS *-*-*-*-*/
+.urban_image {
+    background-image:url(../images/Accueil.jpg);
+    height: calc(100vh - 50px);
+}
+
+.box-title {
+    height: 94.35vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.bg-title {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.slogan {
+    font-size: calc(1vw + 2em);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Tenor Sans', sans-serif;
+    font-weight: bold ;
+    font-style: italic;
+    background-color: rgb(26, 43, 60);
+    color : white;
+    padding: 25px;
+}
+
+.media h4 {
+    text-align: justify;
+}
+
+.media h3 {
+    text-align: center;
+}
+
+.leven {
+    font-family: 'Tenor Sans', sans-serif;
+    font-weight: bold ;
+}
+
+.presentation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-heading {
+    font-size: 5vh;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.element_jumbotron {
+    position: relative;
+    min-height: 1px;
+    /*padding-right: 15px;*/
+    padding-left: 15px;
+}
+
+.history {
+    text-align: justify;
+    padding-left: 20px;
+    font-size:1.5vw;
+}
+/*-*-*-*-* END HOME CSS *-*-*-*-*/
+
 /* brands page */
 .brand-container {
     background-color: #1A2B3C;
