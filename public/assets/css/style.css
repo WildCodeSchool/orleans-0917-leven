@@ -1,8 +1,13 @@
+/* Common */
+body {
+    margin-top: 70px;
+}
+
+
+/* Navbar */
 .logo{
     position: relative; width: 135px;
     margin-top: -18px;
-
-
 }
 
 .navbar-default{
@@ -51,26 +56,26 @@
 }
 
 /*-*-*-*-* HOME CSS *-*-*-*-*/
-.urban_image {
+.urban_image{
     background-image:url(../images/Accueil.jpg);
-    height: calc(100vh - 50px);
+    height: 100vh;
 }
 
 .box-title {
-    height: 94.35vh;
+    height: 100vh;
     background-color: rgba(255, 255, 255, 0.5);
     padding-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
-
 .bg-title {
     padding-left: 0;
     padding-right: 0;
+
 }
 
-.slogan {
+.slogan{
     font-size: calc(1vw + 2em);
     text-align: center;
     margin-top: 0;
@@ -83,45 +88,102 @@
     padding: 25px;
 }
 
-.media h4 {
+.media h4{
     text-align: justify;
 }
-
-.media h3 {
+.media h3{
     text-align: center;
 }
 
-.leven {
+.leven{
     font-family: 'Tenor Sans', sans-serif;
     font-weight: bold ;
 }
+.presentation
+{
 
-.presentation {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.media-heading {
+.media-heading{
     font-size: 5vh;
     text-align: center;
     padding-bottom: 20px;
     padding-top: 20px;
 }
-
-.element_jumbotron {
+.element_jumbotron{
     position: relative;
     min-height: 1px;
     /*padding-right: 15px;*/
     padding-left: 15px;
 }
 
-.history {
+.history{
     text-align: justify;
     padding-left: 20px;
     font-size:1.5vw;
 }
+
+.video_presentation .container-fluid .row .col-md-5 {
+    margin-top: 15px;
+}
+
 /*-*-*-*-* END HOME CSS *-*-*-*-*/
+
+/* FOOTER START HERE */
+.footer-bs {
+    background-color: #1a2b3c;
+    padding: 60px 40px;
+    color: rgba(255,255,255,1.00);
+    margin-bottom: 20px;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 6px;
+}
+
+.footer-bs .footer-brand, .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { padding:10px 25px; }
+.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-color: transparent; }
+.footer-bs .footer-brand h2 { margin:0px 0px 10px; }
+.footer-bs .footer-brand p { font-size:12px; color:rgba(255,255,255,0.70); }
+
+.footer-bs .footer-nav ul.pages { list-style:none; padding:0px; }
+.footer-bs .footer-nav ul.pages li { padding:5px 0px;}
+.footer-bs .footer-nav ul.pages a { color:rgba(255,255,255,1.00); font-weight:bold; text-transform:uppercase; }
+.footer-bs .footer-nav ul.pages a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
+.footer-bs .footer-nav h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom:10px;
+}
+
+.footer-bs .footer-nav ul.list { list-style:none; padding:0px; }
+.footer-bs .footer-nav ul.list li { padding:5px 0px;}
+.footer-bs .footer-nav ul.list a { color:rgba(255,255,255,0.80); }
+.footer-bs .footer-nav ul.list a:hover { color:rgba(255,255,255,0.60); text-decoration:none; }
+
+.footer-bs .footer-social ul { list-style:none; padding:0px; }
+.footer-bs .footer-social h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.footer-bs .footer-social li { padding:5px 4px;}
+.footer-bs .footer-social a { color:rgba(255,255,255,1.00);}
+.footer-bs .footer-social a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
+
+.footer-bs .footer-ns h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom:10px;
+}
+.footer-bs .footer-ns p { font-size:12px; color:rgba(255,255,255,0.70); }
+
+@media (min-width: 768px) {
+    .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-left:solid 1px rgba(255,255,255,0.10); }
+}
 
 /* brands page */
 .brand-container {
@@ -162,3 +224,40 @@
 div.row.display-flex > div {
     margin-bottom: 24px;
 }
+
+/* Style all font awesome icons */
+.fa {
+    margin-left: 7%;
+}
+/* END FOOTER */
+
+/*-*-*-*-* START MEDIA QUERIES *-*-*-*-*/
+
+@media screen and (max-width: 767px){ /* COL-XS */
+
+    .description{
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 768px) AND (max-width: 991px){ /* COL-SM */
+
+    .description{
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 992px) AND (max-width: 1199px){ /* COL-MD */
+
+
+
+}
+
+@media screen and (min-width: 1200px) { /* MEDIA FOR COL-LG */
+
+
+}
+
+/*-*-*-*-* END MEDIA QUERIES *-*-*-*-*/

@@ -10,6 +10,7 @@ require '../vendor/autoload.php';
 
 use Leven\Controller\HomeController;
 use Leven\Controller\BrandController;
+use Leven\Controller\AdminController;
 
 // Routeur basique, necessite une url index.php?route=xxx
 $route = $_GET['route'];
@@ -21,6 +22,11 @@ if ($route == 'accueil') {
 } elseif ($route == 'marques') {
     $brandController = new BrandController();
     echo  $brandController->brandAction();
-} else {
+} elseif ($route == 'admin'){
+    $adminController = new AdminController();
+    echo  $adminController->adminAction();
+}
+
+else {
     echo 'La page n\'existe pas';
 }
