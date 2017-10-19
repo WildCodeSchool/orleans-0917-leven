@@ -1,6 +1,8 @@
 /* Common */
 body {
     margin-top: 70px;
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: calc(1vw + 1em);
 }
 
 
@@ -19,7 +21,7 @@ body {
 }
 .navbar-default .navbar-nav>li>a{
     color: white;
-    font-size: 1.4em;
+    font-size: 1em;
     font-family: 'Tenor Sans', sans-serif;
     position: relative;
 }
@@ -76,12 +78,11 @@ body {
 }
 
 .slogan{
-    font-size: calc(1vw + 2em);
+    font-size: 2em;
     text-align: center;
     margin-top: 0;
     margin-bottom: 0;
-    font-family: 'Tenor Sans', sans-serif;
-    font-weight: bold ;
+    font-family: 'Lobster Two', sans-serif;
     font-style: italic;
     background-color: rgb(26, 43, 60);
     color : white;
@@ -120,13 +121,41 @@ body {
 }
 
 .history{
-    text-align: justify;
+
     padding-left: 20px;
-    font-size:1.5vw;
+    font-size: 1em;
+}
+
+.history > p {
+    margin-top:10px;
 }
 
 .video_presentation .container-fluid .row .col-md-5 {
     margin-top: 15px;
+}
+/*********texte presentation**************/
+
+.title_introduction {
+    font-size:x-large;font-weight:bold;
+}
+
+.introduction {
+    display:block;
+    width:360px;
+    overflow:hidden;
+    margin:0 auto;
+
+}
+.presentation_block{
+    padding-bottom: 20px;
+}
+
+.bold {
+    font-weight:bold
+}
+
+.introduction_form{
+    padding-bottom: 30px;
 }
 
 /*-*-*-*-* END HOME CSS *-*-*-*-*/

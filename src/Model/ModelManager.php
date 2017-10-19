@@ -8,13 +8,12 @@
 
 namespace Leven\Model;
 
-
 class ModelManager
 {
-    private $pdo;
+    protected $pdo;
 
     public function __construct()
     {
-        $this->pdo = new \PDO(DSN, USERNAME, PASSWORD);
+        $this->pdo = new \PDO(DSN, USERNAME, PASSWORD, [\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION]);
     }
 }

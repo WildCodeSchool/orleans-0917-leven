@@ -68,6 +68,3 @@ class Introduction
         return $this;
     }
 }
-
-
-

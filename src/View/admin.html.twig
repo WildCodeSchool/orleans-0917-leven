@@ -1,10 +1,28 @@
 {% include 'header.html.twig' %}
 
-
 <div class="container">
-    <div id="summernote"><p>Hello Summernote</p></div>
+    <legend class="title_introduction">Modification du texte de présentation</legend>
+    <div class="row">
+        <form method="POST" action="index.php?route=admin" class="introduction_form">
+            <textarea class ="introduction" name="introduction" id="introduction" rows="10" cols="80">
+                {{ intro.content }}
+            </textarea>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'introduction', {
+                    customConfig: 'ckeditor_config.js',
+                    language: 'fr',
+                    uiColor: '#1A2B3C',
+                    width: '75%'
+                });
+            </script>
+            <button type="submit" class="btn btn-success">
+                <span class="glyphicon glyphicon-plus"></span>Ajouter le texte
+            </button>
+        </form>
+    </div>
 </div>
-
 
 {% include 'footer.html.twig' %}
 
