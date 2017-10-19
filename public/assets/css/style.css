@@ -1,3 +1,167 @@
+.logo{
+    position: relative; width: 135px;
+    margin-top: -18px;
+
+
+}
+
+.navbar-default{
+    background-color: rgb(26, 43, 60);
+    border: none;
+    border-radius: 0;
+    padding: 10px;
+
+}
+.navbar-default .navbar-nav>li>a{
+    color: white;
+    font-size: 1.4em;
+    font-family: 'Tenor Sans', sans-serif;
+    position: relative;
+}
+
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
+    color: rgb(153, 188, 229);
+    background-color: rgb(26, 43, 60);
+
+}
+
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+    color: rgb(153, 188, 229);
+    background-color: rgb(26, 43, 60);
+}
+.dropdown-menu {
+    background-color: rgb(26, 43, 60);
+    text-align: center;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu>li>a{
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 1.4em;
+    color: white;
+}
+
+/*-*-*-*-* HOME CSS *-*-*-*-*/
+.urban_image {
+    background-image:url(../images/Accueil.jpg);
+    height: calc(100vh - 50px);
+}
+
+.box-title {
+    height: 94.35vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.bg-title {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.slogan {
+    font-size: calc(1vw + 2em);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Tenor Sans', sans-serif;
+    font-weight: bold ;
+    font-style: italic;
+    background-color: rgb(26, 43, 60);
+    color : white;
+    padding: 25px;
+}
+
+.media h4 {
+    text-align: justify;
+}
+
+.media h3 {
+    text-align: center;
+}
+
+.leven {
+    font-family: 'Tenor Sans', sans-serif;
+    font-weight: bold ;
+}
+
+.presentation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-heading {
+    font-size: 5vh;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.element_jumbotron {
+    position: relative;
+    min-height: 1px;
+    /*padding-right: 15px;*/
+    padding-left: 15px;
+}
+
+.history {
+    text-align: justify;
+    padding-left: 20px;
+    font-size:1.5vw;
+}
+/*-*-*-*-* END HOME CSS *-*-*-*-*/
+
+/* brands page */
+.brand-container {
+    background-color: #1A2B3C;
+}
+
+.brand-image > img {
+    display: inline;
+    width: auto;
+}
+
+.block-margin {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.brand-text {
+    font-size: 0.85em;
+}
+
+.brand-item-number {
+    float: left;
+    color: white;
+    background-color: #1A2B3C;
+    border: 1px solid black;
+    width: 20px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.row.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.row.display-flex > div {
+    margin-bottom: 24px;
+}
 
 /* FOOTER START HERE */
 .footer-bs {
