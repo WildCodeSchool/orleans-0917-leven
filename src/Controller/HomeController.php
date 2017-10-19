@@ -16,7 +16,7 @@ class HomeController extends Controller
     {
         $introductionManager = new IntroductionManager();
         // on sait qu'il n'y aura qu'une seule entrée dans la table introduction
-        $introduction = $introductionManager->find(3);
+        $introduction = $introductionManager->find(0);
 
 
         return $this->twig->render('home.html.twig', [

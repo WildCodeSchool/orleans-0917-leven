@@ -7,19 +7,19 @@ body {
 
 
 /* Navbar */
-.logo{
+.logo {
     position: relative; width: 135px;
     margin-top: -18px;
 }
 
-.navbar-default{
+.navbar-default {
     background-color: rgb(26, 43, 60);
     border: none;
     border-radius: 0;
     padding: 10px;
-
 }
-.navbar-default .navbar-nav>li>a{
+
+.navbar-default .navbar-nav>li>a {
     color: white;
     font-size: 1em;
     font-family: 'Tenor Sans', sans-serif;
@@ -42,6 +42,7 @@ body {
     color: rgb(153, 188, 229);
     background-color: rgb(26, 43, 60);
 }
+
 .dropdown-menu {
     background-color: rgb(26, 43, 60);
     text-align: center;
@@ -51,14 +52,14 @@ body {
     display: block;
 }
 
-.dropdown-menu>li>a{
+.dropdown-menu>li>a {
     font-family: 'Tenor Sans', sans-serif;
     font-size: 1.4em;
     color: white;
 }
 
 /*-*-*-*-* HOME CSS *-*-*-*-*/
-.urban_image{
+.urban_image {
     background-image:url(../images/Accueil.jpg);
     height: 100vh;
 }
@@ -71,13 +72,13 @@ body {
     flex-direction: column;
     justify-content: space-around;
 }
+
 .bg-title {
     padding-left: 0;
     padding-right: 0;
-
 }
 
-.slogan{
+.slogan {
     font-size: 2em;
     text-align: center;
     margin-top: 0;
@@ -89,39 +90,39 @@ body {
     padding: 25px;
 }
 
-.media h4{
+.media h4 {
     text-align: justify;
 }
-.media h3{
+
+.media h3 {
     text-align: center;
 }
 
-.leven{
+.leven {
     font-family: 'Tenor Sans', sans-serif;
     font-weight: bold ;
 }
-.presentation
-{
-
+.presentation {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.media-heading{
+
+.media-heading {
     font-size: 5vh;
     text-align: center;
     padding-bottom: 20px;
     padding-top: 20px;
 }
-.element_jumbotron{
+
+.element_jumbotron {
     position: relative;
     min-height: 1px;
     /*padding-right: 15px;*/
     padding-left: 15px;
 }
 
-.history{
-
+.history {
     padding-left: 20px;
     font-size: 1em;
 }
@@ -146,7 +147,7 @@ body {
     margin:0 auto;
 
 }
-.presentation_block{
+.presentation_block {
     padding-bottom: 20px;
 }
 
@@ -154,7 +155,7 @@ body {
     font-weight:bold
 }
 
-.introduction_form{
+.introduction_form {
     padding-bottom: 30px;
 }
 
