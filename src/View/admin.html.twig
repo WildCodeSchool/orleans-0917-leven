@@ -1,0 +1,45 @@
+{% include 'header.html.twig' %}
+
+<div class="container">
+    <legend class="title_introduction">Modification du texte de présentation</legend>
+    {% if errorMessages %}
+        <div class="row">
+    {% for errorMessage in errorMessages %}
+        <div class="alert alert-danger" role="alert">{{ errorMessage }}</div>
+    {% endfor %}
+        </div>
+    {% endif %}
+    {% if successMessages %}
+        <div class="row">
+            {% for successMessage in successMessages %}
+                <div class="alert alert-success" role="alert">{{ successMessage }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="row">
+        <form method="POST" action="index.php?route=admin" class="introduction_form">
+            <textarea class ="introduction" name="content" id="introduction" rows="10" cols="80">
+                {{ company.content }}
+            </textarea>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'introduction', {
+                    customConfig: 'ckeditor_config.js',
+                    language: 'fr',
+                    width: '75%'
+                });
+            </script>
+            <button type="submit" class="btn btn-success">
+                {% if is_mod == false %}
+                <span class="glyphicon glyphicon-plus"></span>Ajouter le texte
+                {% else %}
+                <span class="glyphicon glyphicon-tick"></span>Modifier le texte
+                {% endif %}
+            </button>
+        </form>
+    </div>
+</div>
+
+{% include 'footer.html.twig' %}
+
