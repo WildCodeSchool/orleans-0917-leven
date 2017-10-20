@@ -49,7 +49,7 @@ class AdminController extends Controller
             'company' => $company,
             'is_mod' => $isMod,
             'errorMessages' => $errorMessages,
-            'succesMessages' => $successMessages,
+            'successMessages' => $successMessages,
         ]);
     }
 }
