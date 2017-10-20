@@ -2,41 +2,54 @@
 
 namespace Leven\Controller;
 
-use Leven\Model\Introduction;
-use Leven\Model\IntroductionManager;
+use Leven\Model\Company;
+use Leven\Model\CompanyManager;
 
 class AdminController extends Controller
 {
     public function adminAction()
     {
-        $introductionManager = new IntroductionManager();
-        $introduction = $introductionManager->find(0);
-        $errors = [];
+        $isMod = false;
+        $compagnyManager = new CompanyManager();
+        $company = $compagnyManager->find(1);
+
+        if ($company) {
+            $isMod = true;
+        }
+
+        $errorMessages = [];
+        $successMessages = [];
         if (!empty($_POST)) {
-            if (empty($_POST['introduction'])
-                || empty(trim($_POST['introduction']))) {
-                $errors[] = 'Vous devez remplir l\'historique de la marque';
+            if (empty($_POST['content'])
+                || empty(trim($_POST['content']))) {
+                $errorMessages[] = 'Vous devez remplir l\'historique de la marque';
             }
 
-            if (empty($errors)) {
-                //prend la variable newIntroduction et attend les indications '(soit insert soit update)
-                $newIntroduction = new Introduction();
-                //setter de content pour écriture une fois que nous validons
-                $newIntroduction->setContent($_POST['introduction']);
-                if (!empty($introduction)) {
-                    // TODO: Update
-                    //$introduction->setContent($_POST['introduction']);
-                    //$introductionManager->update($introduction);
+            if (empty($errorMessages)) {
+                if ($company) {
+                    $company->setContent($_POST['content']);
+                    $compagnyManager->update($company);
                 } else {
-                    $introductionManager = new IntroductionManager();
-                    $introductionManager->insert($newIntroduction);
+                    //prend la variable newCompany et attend les indications '(soit insert soit update)
+                    $newCompany = new Company();
+                    //setter de content pour écriture une fois que nous validons
+                    $newCompany->setContent($_POST['content']);
 
-                    $introduction = $newIntroduction;
+                    $compagnyManager = new CompanyManager();
+                    $compagnyManager->insert($newCompany);
+
+                    $company = $newCompany;
                 }
+
+                $successMessages[] = 'Modifications réussies';
             }
         }
+
         return $this->twig->render('admin.html.twig', [
-            'intro' => $introduction,
+            'company' => $company,
+            'is_mod' => $isMod,
+            'errorMessages' => $errorMessages,
+            'succesMessages' => $successMessages,
         ]);
     }
 }

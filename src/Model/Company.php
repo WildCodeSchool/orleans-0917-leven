@@ -8,7 +8,7 @@
 
 namespace Leven\Model;
 
-class Introduction
+class Company
 {
     private $id;
     private $content;
@@ -17,16 +17,16 @@ class Introduction
     /**
      * @return mixed
      */
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
     }
 
     /**
      * @param mixed $id
-     * @return Introduction
+     * @return Company
      */
-    public function setId($id)
+    public function setId(int $id) : Company
     {
         $this->id = $id;
         return $this;
@@ -42,9 +42,9 @@ class Introduction
 
     /**
      * @param mixed $content
-     * @return Introduction
+     * @return Company
      */
-    public function setContent($content)
+    public function setContent(string $content) : Company
     {
         $this->content = $content;
         return $this;
@@ -60,9 +60,9 @@ class Introduction
 
     /**
      * @param mixed $video_link
-     * @return Introduction
+     * @return Company
      */
-    public function setVideoLink($video_link)
+    public function setVideoLink(string $video_link) : Company
     {
         $this->video_link = $video_link;
         return $this;

@@ -8,21 +8,18 @@
 
 namespace Leven\Controller;
 
-use Leven\Model\IntroductionManager;
+use Leven\Model\CompanyManager;
 
 class HomeController extends Controller
 {
     public function homeAction()
     {
-        $introductionManager = new IntroductionManager();
-        // on sait qu'il n'y aura qu'une seule entrée dans la table introduction
-        $introduction = $introductionManager->find(0);
-
+        $compagnyManager = new CompanyManager();
+        // on sait qu'il n'y aura qu'une seule entrée dans la table company
+        $company = $compagnyManager->find(1);
 
         return $this->twig->render('home.html.twig', [
-            'intro' => $introduction,
+            'company' => $company,
         ]);
-
-        //return $this->twig->render('home.html.twig');
     }
 }
