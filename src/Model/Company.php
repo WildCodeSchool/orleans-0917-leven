@@ -12,7 +12,7 @@ class Company
 {
     private $id;
     private $content;
-    private $video_link;
+    private $videoLink;
 
     /**
      * @return mixed
@@ -55,16 +55,16 @@ class Company
      */
     public function getVideoLink()
     {
-        return $this->video_link;
+        return $this->videoLink;
     }
 
     /**
-     * @param mixed $video_link
+     * @param mixed $videoLink
      * @return Company
      */
-    public function setVideoLink(string $video_link) : Company
+    public function setVideoLink(string $videoLink) : Company
     {
-        $this->video_link = $video_link;
+        $this->videoLink = $videoLink;
         return $this;
     }
 }

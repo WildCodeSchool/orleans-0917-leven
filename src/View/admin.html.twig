@@ -30,6 +30,10 @@
                     width: '75%'
                 });
             </script>
+            <div class ="videoblock">
+                <label for="video_link">Lien de la vidéo</label>
+                <input id="video_link" name="video_link" type="url" value="https://youtu.be/{{ company.video_link }}" />
+            </div>
             <button type="submit" class="btn btn-success">
                 {% if is_mod == false %}
                 <span class="glyphicon glyphicon-plus"></span>Ajouter le texte
