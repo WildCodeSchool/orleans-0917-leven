@@ -22,8 +22,7 @@ class AdminController extends Controller
         $youtube_id = "";
 
         if (!empty($_POST)) {
-            if (empty($_POST['content'])
-                || empty(trim($_POST['content']))) {
+            if (empty(trim($_POST['content']))) {
                 $errorMessages[] = 'Vous devez remplir l\'historique de la marque';
             }
 
@@ -32,7 +31,7 @@ class AdminController extends Controller
                 $reg = '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)' .
                     '/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i';
                 if (preg_match($reg, $link, $videoid)) {
-                    if (isset($videoid) && count($videoid) == 2) {
+                    if (isset($videoid[1])) {
                         $youtube_id = $videoid[1];
                     }
                 } else {
@@ -40,21 +39,17 @@ class AdminController extends Controller
                 }
             }
             if (empty($errorMessages)) {
-                if ($company) {
-                    $company->setContent($_POST['content']);
-                    $company->setVideoLink($youtube_id);
+                if (!$company) {
+                    $company = new Company();
+                }
+
+                $company->setContent($_POST['content']);
+                $company->setVideoLink($youtube_id);
+
+                if ($isMod) {
                     $compagnyManager->update($company);
                 } else {
-                    //prend la variable newCompany et attend les indications '(soit insert soit update)
-                    $newCompany = new Company();
-                    //setter de content pour écriture une fois que nous validons
-                    $newCompany->setContent($_POST['content']);
-                    $newCompany->setVideoLink($youtube_id);
-
-                    $compagnyManager = new CompanyManager();
-                    $compagnyManager->insert($newCompany);
-
-                    $company = $newCompany;
+                    $compagnyManager->insert($company);
                 }
 
                 $successMessages[] = 'Modifications réussies';
@@ -63,7 +58,7 @@ class AdminController extends Controller
 
         return $this->twig->render('admin.html.twig', [
             'company' => $company,
-            'is_mod' => $isMod,
+            'isMod' => $isMod,
             'errorMessages' => $errorMessages,
             'successMessages' => $successMessages,
         ]);
