@@ -1,7 +1,7 @@
 {% include 'header.html.twig' %}
 
 <div class="container">
-    <legend class="title_introduction">Modification du texte de présentation</legend>
+    <legend class="title_introduction">Modification de la page d'accueil</legend>
     {% if errorMessages %}
         <div class="row">
     {% for errorMessage in errorMessages %}
@@ -30,13 +30,12 @@
                     width: '75%'
                 });
             </script>
-            <button type="submit" class="btn btn-success">
-                {% if is_mod == false %}
-                <span class="glyphicon glyphicon-plus"></span>Ajouter le texte
-                {% else %}
-                <span class="glyphicon glyphicon-tick"></span>Modifier le texte
-                {% endif %}
-            </button>
+            <div class ="videoblock">
+                <label for="video_link">Lien de la vidéo:</label>
+                <input id="video_link" name="video_link" type="url" value="https://youtu.be/{{ company.video_link }}" />
+            </div>
+            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-{{ isMod ? 'tick' : 'plus' }}"></span>{{ isMod ? 'Modfier' :
+                'Ajouter' }}</button>
         </form>
     </div>
 </div>
