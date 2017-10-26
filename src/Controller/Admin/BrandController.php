@@ -96,6 +96,19 @@ class BrandController extends Controller
         return $response;
     }
 
+    public function deleteBrandAction($id)
+    {
+       $brandManager = new BrandManager();
+
+       $brand = $brandManager->find($id);
+       $this->tryDeleteFile($brand->getLogoPicture());
+       $this->tryDeleteFile($brand->getBrandPicture());
+       $this->tryDeleteFile($brand->getModelPicture());
+
+       $brandManager->delete($brand);
+       return $this->brandAction();
+    }
+
     private function checkPost(Brand &$brand, array &$errorMessages) : bool
     {
         $result = false;
