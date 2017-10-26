@@ -36,7 +36,7 @@ class BrandManager extends ModelManager
      * @param Brand $brand
      * @return string
      */
-    public function insert(Brand $brand) : string
+    public function insert(Brand $brand): string
     {
         $query = "INSERT INTO brand
                   (name, introduction_text, logo_picture, brand_picture, model_picture, article_text)
@@ -80,6 +80,17 @@ class BrandManager extends ModelManager
         $statement->bindValue(':model_picture', $brand->getModelPicture(), \PDO::PARAM_STR);
         $statement->bindValue(':article_text', $brand->getArticleText(), \PDO::PARAM_STR);
 
+        $statement->execute();
+    }
+
+    public function delete(Brand $brand)
+    {
+        $query = "DELETE FROM brand
+                  WHERE id=:id";
+
+        $statement = $this->pdo->prepare($query);
+
+        $statement->bindValue(':id', $brand->getId(), \PDO::PARAM_STR);
         $statement->execute();
     }
 }

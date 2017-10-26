@@ -30,6 +30,11 @@ if ($route == 'leven') {
 } else if ($route == 'ajout-marque') {
     $brandAdminController = new BrandController();
     echo $brandAdminController->addBrandAction();
+} else if ($route == 'suppression-marque') {
+    if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
+        $brandAdminController = new BrandController();
+        echo $brandAdminController->deleteBrandAction($_GET['id']);
+    }
 } else {
     $errorController = new ErrorController();
     echo $errorController->notFoundAction(true);
