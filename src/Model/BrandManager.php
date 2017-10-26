@@ -83,14 +83,14 @@ class BrandManager extends ModelManager
         $statement->execute();
     }
 
-    public function delete($id)
+    public function delete(Brand $brand)
     {
         $query = "DELETE FROM brand
                   WHERE id=:id";
 
         $statement = $this->pdo->prepare($query);
 
-        $statement->bindValue('id', $id, \PDO::PARAM_STR);
+        $statement->bindValue(':id', $brand->getId(), \PDO::PARAM_STR);
         $statement->execute();
     }
 }

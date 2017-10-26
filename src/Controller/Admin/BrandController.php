@@ -105,7 +105,7 @@ class BrandController extends Controller
        $this->tryDeleteFile($brand->getBrandPicture());
        $this->tryDeleteFile($brand->getModelPicture());
 
-       $brandManager->delete($id);
+       $brandManager->delete($brand);
        return $this->brandAction();
     }
 
