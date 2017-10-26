@@ -1,30 +1,31 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: benjah
- * Date: 11/10/17
- * Time: 15:55
- */
 
 require '../vendor/autoload.php';
 require '../connect.php';
 
 use Leven\Controller\HomeController;
 use Leven\Controller\BrandController;
-use Leven\Controller\AdminController;
+use Leven\Controller\ErrorController;
 
-// Routeur basique, necessite une url index.php?route=xxx
-$route = $_GET['route'];
-// On appelle une methode d'un controlleur en fonction de la route saisie en URL
+if (!empty($_GET['route'])) {
+    $route = $_GET['route'];
+} else {
+    $route = 'accueil';
+}
+
 if ($route == 'accueil') {
     $homeController = new HomeController();
     echo $homeController->homeAction();
-} elseif ($route == 'marques') {
-    $brandController = new BrandController();
-    echo $brandController->brandAction();
-} elseif ($route == 'admin') {
-    $adminController = new AdminController();
-    echo $adminController->adminAction();
+} elseif ($route == 'marque') {
+    $id = '';
+    if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
+        $brandController = new BrandController();
+        echo $brandController->brandAction($_GET['id']);
+    } else {
+        $errorController = new ErrorController();
+        echo $errorController->notFoundAction();
+    }
 } else {
-    echo 'La page n\'existe pas';
+    $errorController = new ErrorController();
+    echo $errorController->notFoundAction();
 }

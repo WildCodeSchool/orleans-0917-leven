@@ -1,47 +1,58 @@
-{% include 'header.html.twig' %}
-{% include 'navbar.html.twig' %}
-
-<div class="container-fluid brand-container">
+{% extends 'base.html.twig' %}
+{% block content %}
     <div class="row">
         <div class="col-xs-12 col-md-offset-1 col-md-10">
-            <div class="panel block-margin">
-                <div class="panel-body brand-image text-center">
-                    <img class="img-responsive" src="http://via.placeholder.com/200x100" alt="Logo de la marque">
-                </div>
-                <div class="panel-footer brand-text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu mi ut mauris bibendum auctor in sed sapien. Curabitur rutrum commodo erat. Fusce consectetur turpis in nunc blandit fermentum. Morbi tristique felis convallis risus egestas feugiat. Pellentesque ut ultricies dui. Sed non semper orci, vel venenatis massa. Quisque auctor leo a nibh luctus, ut lacinia odio bibendum. Nullam ut hendrerit leo. Aliquam tellus lacus, porttitor a ultricies id, pharetra facilisis nisi. Nulla luctus urna turpis, ut ultricies sem elementum quis.</p>
-                </div>
+            <div class="panel panel-brand block-margin">
+                {% if brand.logoPicture %}
+                    <div class="panel-body brand-image text-center">
+                        <img class="brand-logo img-responsive" src="{{ brand.logoPicture }}" alt="Logo de la marque">
+                    </div>
+                {% endif %}
+                {% if brand.introductionText %}
+                    <div class="panel-footer brand-text">
+                        {{ brand.introductionText | raw }}
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-offset-1 col-md-10">
-            <div class="panel">
-                <div class="panel-body text-center">
-                    <img class="img-responsive" src="http://via.placeholder.com/1920x1080" alt="Photo de présentation de la marque">
+            {% if brand.brandPicture or brand.modelPicture %}
+                <div class="panel panel-brand">
+                    <div class="panel-body">
+                        <div class="row">
+                            {% if brand.brandPicture %}
+                                {% if brand.modelPicture %}
+                                    <div class="col-md-8 block-margin">
+                                        <img class="img-responsive" src="{{ brand.brandPicture }}" alt="Photo de présentation">
+                                    </div>
+                                {% else %}
+                                    <div class="col-md-12">
+                                        <img class="img-responsive" src="{{ brand.brandPicture }}" alt="Photo de présentation">
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                            {% if brand.modelPicture %}
+                                {% if brand.brandPicture %}
+                                    <div class="col-md-4">
+                                        <img class="img-responsive" src="{{ brand.modelPicture }}" alt="Photo du manequin">
+                                    </div>
+                                {% else %}
+                                    <div class="col-md-12">
+                                        <img class="img-responsive" src="{{ brand.modelPicture }}" alt="Photo du manequin">
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% if brand.articleText %}
+                        <div class="panel-footer brand-text">
+                            {{ brand.articleText | raw }}
+                        </div>
+                    {% endif %}
                 </div>
-                <div class="panel-footer brand-text">
-                    <ol class="list-inline">
-                        <li><span class="brand-item-number">1</span>Déscription 1 - Lorem ipsum dolor sit amet. Curabitur rutrum commodo erat.</li>
-                        <li><span class="brand-item-number">2</span>Déscription 2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li><span class="brand-item-number">3</span>Déscription 3 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rutrum commodo erat.</li>
-                        <li><span class="brand-item-number">4</span>Déscription 4 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rutrum commodo erat.</li>
-                        <li><span class="brand-item-number">5</span>Déscription 5 - Lorem ipsum dolor sit amet.</li>
-                        <li><span class="brand-item-number">6</span>Déscription 6 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li><span class="brand-item-number">7</span>Déscription 7 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rutrum commodo erat.</li>
-                        <li><span class="brand-item-number">8</span>Déscription 8 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li><span class="brand-item-number">9</span>Déscription 9 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rutrum commodo erat.</li>
-                        <li><span class="brand-item-number">10</span>Déscription 10 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rutrum commodo erat.</li>
-                        <li><span class="brand-item-number">11</span>Déscription 11 - Lorem ipsum dolor sit amet.</li>
-                        <li><span class="brand-item-number">12</span>Déscription 12 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li><span class="brand-item-number">13</span>Déscription 13 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rutrum commodo erat.</li>
-                        <li><span class="brand-item-number">14</span>Déscription 14 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li><span class="brand-item-number">15</span>Déscription 15 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rutrum commodo erat.</li>
-                    </ol>
-                </div>
-            </div>
+            {% endif %}
         </div>
     </div>
-</div>
-
-{% include 'footer.html.twig' %}
+{% endblock %}

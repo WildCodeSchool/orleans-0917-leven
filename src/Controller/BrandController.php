@@ -1,17 +1,33 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: benjah
- * Date: 11/10/17
- * Time: 17:08
- */
 
 namespace Leven\Controller;
 
+use Leven\Model\BrandManager;
+
 class BrandController extends Controller
 {
-    public function brandAction()
+    public function brandAction($brandId)
     {
-        return $this->twig->render('brand.html.twig');
+        $brandManager = new BrandManager();
+        $brand = $brandManager->find($brandId);
+        $response = '';
+
+        if (!$brand) {
+            $response = $this->twig->render(
+                'error.html.twig', ['errorMessage' => 'Cette marque n\'existe plus.']
+            );
+        } else {
+            $this->buildBrandPicturePaths($brand);
+
+            $response = $this->twig->render(
+                'brand.html.twig',
+                [
+                    'brand' => $brand,
+                    'brands' => $this->getAllBrands(),
+                ]
+            );
+        }
+
+        return $response;
     }
 }
