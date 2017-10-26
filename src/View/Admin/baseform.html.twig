@@ -1,0 +1,138 @@
+{% extends 'base.html.twig' %}
+{% block navbar %}
+    {% include 'Admin/adminnavbar.html.twig' %}
+{% endblock %}
+{% block content %}
+    {% block content_title %}
+    {% endblock %}
+    {% if errorMessages %}
+        <div class="row">
+            {% for errorMessage in errorMessages %}
+                <div class="col-md-12">
+                    <div class="alert alert-danger" role="alert">{{ errorMessage }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if successMessages %}
+        <div class="row">
+            <div class="col-md-12">
+                {% for successMessage in successMessages %}
+                    <div class="alert alert-success" role="alert">{{ successMessage }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+    <form method="post" action="{{ postUrl }}" enctype="multipart/form-data" class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="name">Nom:</label>
+            <div class="col-sm-10">
+                <input type="text"
+                       class="form-control"
+                       id="name"
+                       name="name"
+                       placeholder="Entrez le nom de la marque"
+                       maxlength="30"
+                       value="{{ brand.name }}">
+                <p class="form-info">Entrez ici le nom de la marque, le texte ne doit pas dépasser 30 caractères.</p>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="logo_picture">Image du logo:</label>
+            <div class="col-sm-10">
+                <label class="btn btn-primary">
+                    <input type="file"
+                           name="logo_picture"
+                           id="logo_picture"
+                           class="inputfile"
+                           accept="image/jpeg, image/gif, image/png, image/svg"
+                           hidden>
+                    <label for="logo_picture">Choisissez un fichier</label>
+                </label>
+                <p class="form-info">Choisissez ici une image rectangulaire ayant environ une dimenssion de 200 par 150 pixels.</p>
+            </div>
+        </div>
+        {% if brand.logoPicture %}
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    {% block logo_picture %}
+                    {% endblock %}
+                </div>
+            </div>
+        {% endif %}
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="introduction_text">Présentation:</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" name="introduction_text" id="introduction_text" rows="10">
+                {{ brand.introductionText }}
+                </textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="brand_picture">Image de la marque:</label>
+            <div class="col-sm-10">
+                <label class="btn btn-primary">
+                    <input type="file"
+                           name="brand_picture"
+                           id="brand_picture"
+                           class="inputfile"
+                           accept="image/jpeg, image/gif, image/png, image/svg"
+                           hidden>
+                    <label for="brand_picture">Choisissez un fichier</label>
+                </label>
+                <p class="form-info">Choisissez ici une image rectangulaire ayant environ une dimenssion de 1920 par 1080 pixels.</p>
+            </div>
+        </div>
+        {% if brand.brandPicture %}
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    {% block brand_picture %}
+                    {% endblock %}
+                </div>
+            </div>
+        {% endif %}
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="model_picture">Image du manequin:</label>
+            <div class="col-sm-10">
+                <label class="btn btn-primary">
+                    <input type="file"
+                           name="model_picture"
+                           id="model_picture"
+                           class="inputfile"
+                           accept="image/jpeg, image/gif, image/png, image/svg"
+                           hidden>
+                    <label for="model_picture">Choisissez un fichier</label>
+                </label>
+                <p class="form-info">Choisissez ici une image rectangulaire (mode portrait) ayant environ une dimenssion de 400 par 1080 pixels.</p>
+                <p class="form-info">Aussi elle devrait avoir exactement le même hauteur que l'image de la marque afin que sa position soit optimisée.</p>
+            </div>
+        </div>
+        {% if brand.modelPicture %}
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    {% block model_picture %}
+                    {% endblock %}
+                </div>
+            </div>
+        {% endif %}
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="article_text">Texte de l'article:</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" name="article_text" id="article_text" rows="10">
+                {{ brand.articleText }}
+                </textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center">{% block button_submit %}{% endblock %}</p>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+{% block scripts %}
+    {{ parent() }}
+    <script src="assets/js/ckeditor/ckeditor.js"></script>
+    <script src="assets/js/brand-script.js"></script>
+{% endblock %}

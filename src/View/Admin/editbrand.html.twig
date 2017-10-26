@@ -1,0 +1,17 @@
+{% extends 'Admin/baseform.html.twig' %}
+
+{% block content_title %}
+    <h2 class="text-center font-bold">Edition de la marque {{ brand.name }}</h2>
+{% endblock %}
+
+{% block logo_picture %}
+    <img class="brand-logo img-thumbnail img-responsive" src="{{ brand.logoPicture }}" alt="Logo de la marque {{ brand.name }}">
+{% endblock %}
+{% block brand_picture %}
+    <img class="brand-logo img-thumbnail img-responsive" src="{{ brand.brandPicture }}" alt="Image du magasin - partie {{ brand.name }}">
+{% endblock %}
+{% block model_picture %}
+    <img class="brand-logo img-thumbnail img-responsive" src="{{ brand.modelPicture }}" alt="Image du manequin - partie {{ brand.name }}">
+{% endblock %}
+
+{% block button_submit %}<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-tick"></span> Modifier</button>{% endblock %}

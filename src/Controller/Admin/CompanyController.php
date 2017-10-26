@@ -1,13 +1,14 @@
 <?php
 
-namespace Leven\Controller;
+namespace Leven\Controller\Admin;
 
+use Leven\Controller\Controller;
 use Leven\Model\Company;
 use Leven\Model\CompanyManager;
 
-class AdminController extends Controller
+class CompanyController extends Controller
 {
-    public function adminAction()
+    public function companyAction()
     {
         $isMod = false;
         $compagnyManager = new CompanyManager();
@@ -33,6 +34,8 @@ class AdminController extends Controller
                 if (preg_match($reg, $link, $videoid)) {
                     if (isset($videoid[1])) {
                         $youtube_id = $videoid[1];
+                    } else {
+                        $errorMessages[] = 'Impossible de récupérer l\'identifiant de la vidéo youtube.';
                     }
                 } else {
                     $errorMessages[] = 'Le lien de la vidéo doit provenir de Youtube';
@@ -56,11 +59,15 @@ class AdminController extends Controller
             }
         }
 
-        return $this->twig->render('admin.html.twig', [
-            'company' => $company,
-            'isMod' => $isMod,
-            'errorMessages' => $errorMessages,
-            'successMessages' => $successMessages,
-        ]);
+        return $this->twig->render(
+            'Admin/company.html.twig',
+            [
+                'brands' => $this->getAllBrands(),
+                'company' => $company,
+                'isMod' => $isMod,
+                'errorMessages' => $errorMessages,
+                'successMessages' => $successMessages,
+            ]
+        );
     }
 }
