@@ -8,29 +8,27 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php?route=accueil">
                 <img alt="Logo" src="assets/images/Logo_petit.png" class="img-responsive logo">
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">ACCUEIL</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NOS MARQUES</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="active" href="#">Ralph Lauren</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Mc Gregor</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Boss Orange</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Tommy Hilfiger</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Aristow</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Gaastra</a></li>
-                    </ul>
-                <li><a href="#">INFOS PRATIQUES</a></li>
+                <li><a href="index.php?route=accueil">ACCUEIL</a></li>
+                {% if brands %}
+                    <li class="dropdown">
+                        <a href="index.php?route=marques" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MARQUES</a>
+                        <ul class="dropdown-menu">
+                            {% for brand in brands %}
+                                <li><a class="active" href="index.php?route=marque&id={{ brand.id }}">{{ brand.name }}</a></li>
+                                {% if not loop.last %}
+                                <li role="separator" class="divider"></li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endif %}
+                <li><a href="#infos">INFOS PRATIQUES</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

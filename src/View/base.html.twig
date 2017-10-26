@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Leven{% endblock %}</title>
+    {% block css %}
+        <link href="assets/css/bootstrap.css" rel="stylesheet">
+        <!-- Add icon library Font Awesome 4.7.0-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Leven style -->
+        <link href="assets/css/style.css" rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+{% block navbar %}
+    {% include 'navbar.html.twig' %}
+{% endblock %}
+{% block header %}
+{% endblock %}
+<div class="container-fluid min-content">
+    {% block content %}
+    {% endblock %}
+</div>
+{% block footer %}
+    {% include 'footer.html.twig' %}
+{% endblock %}
+{% block scripts %}
+    {# jQuery (necessary for Bootstrap's JavaScript plugins) v1.12.4 #}
+    <script src="assets/js/jquery.js"></script>
+    {# Include all compiled plugins (below), or include individual files as needed #}
+    <script src="assets/js/bootstrap.js"></script>
+{% endblock %}
+</body>
+</html>
