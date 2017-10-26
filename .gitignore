@@ -1,7 +1,10 @@
 # Created by .ignore support plugin (hsz.mobi)
-.idea/*
+.idea/
+public/assets/images/uploads/*
+!public/assets/images/uploads/.gitkeep
 src/ControllerCache/*
-vendor/*
+!src/ControllerCache/.gitkeep
+vendor/
 composer.json
 composer.phar
 connect.php
