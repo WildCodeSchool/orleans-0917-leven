@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% if isAdmin %}
+    {% block navbar %}
+        {% include 'Admin/adminnavbar.html.twig' %}
+    {% endblock %}
+{% endif %}
+{% block content %}
+    <h2>{{ errorTitle }}</h2>
+    {% if errorMessage %}
+        <div class="row">
+            <div class="col-md-12">
+                <p>{{ errorMessage }}</p>
+            </div>
+        </div>
+    {% endif %}
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-center"><a href="index?route=accueil" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> Retourner à l'accueil</a></p>
+        </div>
+    </div>
+{% endblock %}

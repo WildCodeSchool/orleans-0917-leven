@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block navbar %}
+    {% include 'Admin/adminnavbar.html.twig' %}
+{% endblock %}
+{% block content %}
+    <h2 class="text-center font-bold">Liste des marques</h2>
+    <div class="row">
+    {% for brand in brands %}
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <img class="brand-logo img-responsive" src="{{ brand.logoPicture }}" alt="Image du logo {{ brand.name }}">
+                <div class="caption text-center">
+                    <h3>{{ brand.name }}</h3>
+                    <p><a href="admin.php?route=edit-marque&id={{ brand.id }}" class="btn btn-primary" role="button">Editer</a> <a href="#" class="btn btn-danger" role="button">Supprimer</a></p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+        <div class="col-md-12">
+            <p class="text-center"><a href="admin.php?route=ajout-marque" class="btn btn-primary" role="button">Ajouter une marque</a></p>
+        </div>
+    </div>
+{% endblock %}
