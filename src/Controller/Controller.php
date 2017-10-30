@@ -4,8 +4,8 @@ namespace Leven\Controller;
 
 use Leven\Model\BrandManager;
 use Leven\Model\Brand;
+use Leven\Model\Company;
 use Leven\Service\ImageUploader;
-
 /**
  * Class Controller
  *
@@ -68,6 +68,67 @@ class Controller
             $brand->setModelPicture(
                 ImageUploader::buildPath($brand->getModelPicture())
             );
+        }
+    }
+
+    /**
+     * Construit les chemins complets des images pour affichage dans la vue
+     *
+     * @param Brand $brand
+     */
+    protected function buildCompanyPicturePaths(Company &$company)
+    {
+        if (!empty($company->getPicture1())) {
+            $company->setPicture1(
+                ImageUploader::buildPath($company->getPicture1())
+            );
+        }
+
+        if (!empty($company->getPicture2())) {
+            $company->setPicture2(
+                ImageUploader::buildPath($company->getPicture2())
+            );
+        }
+
+        if (!empty($company->getPicture3())) {
+            $company->setPicture3(
+                ImageUploader::buildPath($company->getPicture3())
+            );
+        }
+    }
+
+    /**
+     * @param $imgId
+     * @param array $errorMessages
+     * @return mixed
+     */
+    protected function createImageUploader($imgId, array &$errorMessages)
+    {
+        $uploader = false;
+        if (!empty($_FILES[$imgId])
+            && $_FILES[$imgId]['error'] !== UPLOAD_ERR_NO_FILE
+        ) {
+            $uploader = new ImageUploader($_FILES[$imgId]);
+
+            if (!$uploader->checkUpload()) {
+                $errorMessages = array_merge($errorMessages, $uploader->getErrorMessages());
+                $uploader = false;
+            }
+        }
+
+        return $uploader;
+    }
+
+    /**
+     * @param mixed $fileName
+     */
+    protected function tryDeleteFile($fileName)
+    {
+        if ($fileName != null) {
+            $path = ImageUploader::buildPath($fileName);
+            if (file_exists($path)) {
+                unlink($path);
+            }
         }
     }
 }

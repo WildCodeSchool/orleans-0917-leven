@@ -11,6 +11,8 @@ class HomeController extends Controller
         $compagnyManager = new CompanyManager();
         $company = $compagnyManager->find(1);
 
+        $this->buildCompanyPicturePaths($company);
+
         return $this->twig->render(
             'home.html.twig',
             [

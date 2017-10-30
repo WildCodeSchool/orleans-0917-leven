@@ -159,39 +159,4 @@ class BrandController extends Controller
 
         return $result;
     }
-
-    /**
-     * @param $imgId
-     * @param array $errorMessages
-     * @return mixed
-     */
-    private function createImageUploader($imgId, array &$errorMessages)
-    {
-        $uploader = false;
-        if (!empty($_FILES[$imgId])
-            && $_FILES[$imgId]['error'] !== UPLOAD_ERR_NO_FILE
-        ) {
-            $uploader = new ImageUploader($_FILES[$imgId]);
-
-            if (!$uploader->checkUpload()) {
-                $errorMessages = array_merge($errorMessages, $uploader->getErrorMessages());
-                $uploader = false;
-            }
-        }
-
-        return $uploader;
-    }
-
-    /**
-     * @param mixed $fileName
-     */
-    private function tryDeleteFile($fileName)
-    {
-        if ($fileName != null) {
-            $path = ImageUploader::buildPath($fileName);
-            if (file_exists($path)) {
-                unlink($path);
-            }
-        }
-    }
 }
