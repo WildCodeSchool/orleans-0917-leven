@@ -173,8 +173,8 @@ body {
 }
 
 /* brand page */
-[hidden] {
-    display: none !important;
+.hidden {
+    display: none;
 }
 
 .panel-brand {

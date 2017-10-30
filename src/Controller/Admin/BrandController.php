@@ -80,7 +80,17 @@ class BrandController extends Controller
                 }
             }
 
-            $this->buildBrandPicturePaths($brand);
+            if (!empty($brand->getLogoPicture())) {
+                $brand->setLogoPicture('assets/images/uploads/' . $brand->getLogoPicture());
+            }
+
+            if (!empty($brand->getBrandPicture())) {
+                $brand->setBrandPicture('assets/images/uploads/' . $brand->getBrandPicture());
+            }
+
+            if (!empty($brand->getModelPicture())) {
+                $brand->setModelPicture('assets/images/uploads/' . $brand->getModelPicture());
+            }
 
             $response = $this->twig->render(
                 'Admin/editbrand.html.twig',

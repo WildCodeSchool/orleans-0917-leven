@@ -3,9 +3,8 @@
 namespace Leven\Controller;
 
 use Leven\Model\BrandManager;
-use Leven\Model\Brand;
-use Leven\Model\Company;
 use Leven\Service\ImageUploader;
+
 /**
  * Class Controller
  *
@@ -45,57 +44,6 @@ class Controller
         return $brands;
     }
 
-    /**
-     * Construit les chemins complets des images pour affichage dans la vue
-     *
-     * @param Brand $brand
-     */
-    protected function buildBrandPicturePaths(Brand &$brand)
-    {
-        if (!empty($brand->getLogoPicture())) {
-            $brand->setLogoPicture(
-                ImageUploader::buildPath($brand->getLogoPicture())
-            );
-        }
-
-        if (!empty($brand->getBrandPicture())) {
-            $brand->setBrandPicture(
-                ImageUploader::buildPath($brand->getBrandPicture())
-            );
-        }
-
-        if (!empty($brand->getModelPicture())) {
-            $brand->setModelPicture(
-                ImageUploader::buildPath($brand->getModelPicture())
-            );
-        }
-    }
-
-    /**
-     * Construit les chemins complets des images pour affichage dans la vue
-     *
-     * @param Brand $brand
-     */
-    protected function buildCompanyPicturePaths(Company &$company)
-    {
-        if (!empty($company->getPicture1())) {
-            $company->setPicture1(
-                ImageUploader::buildPath($company->getPicture1())
-            );
-        }
-
-        if (!empty($company->getPicture2())) {
-            $company->setPicture2(
-                ImageUploader::buildPath($company->getPicture2())
-            );
-        }
-
-        if (!empty($company->getPicture3())) {
-            $company->setPicture3(
-                ImageUploader::buildPath($company->getPicture3())
-            );
-        }
-    }
 
     /**
      * @param $imgId
