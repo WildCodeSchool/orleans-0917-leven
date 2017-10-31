@@ -13,6 +13,64 @@ class Company
     private $id;
     private $content;
     private $videoLink;
+    private $picture1;
+    private $picture2;
+    private $picture3;
+
+    /**
+     * @return mixed
+     */
+    public function getPicture1()
+    {
+        return $this->picture1;
+    }
+
+    /**
+     * @param mixed $picture1
+     * @return Company
+     */
+    public function setPicture1($picture1)
+    {
+        $this->picture1 = $picture1;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPicture2()
+    {
+        return $this->picture2;
+    }
+
+    /**
+     * @param mixed $picture2
+     * @return Company
+     */
+    public function setPicture2($picture2)
+    {
+        $this->picture2 = $picture2;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPicture3()
+    {
+        return $this->picture3;
+    }
+
+    /**
+     * @param mixed $picture3
+     * @return Company
+     */
+    public function setPicture3($picture3)
+    {
+        $this->picture3 = $picture3;
+        return $this;
+    }
+
 
     /**
      * @return mixed

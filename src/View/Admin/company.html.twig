@@ -10,26 +10,26 @@
     {% if errorMessages %}
         <div class="row">
             <div class="col-md-12">
-            {% for errorMessage in errorMessages %}
-                <div class="alert alert-danger" role="alert">{{ errorMessage }}</div>
-            {% endfor %}
+                {% for errorMessage in errorMessages %}
+                    <div class="alert alert-danger" role="alert">{{ errorMessage }}</div>
+                {% endfor %}
             </div>
         </div>
     {% endif %}
     {% if successMessages %}
         <div class="row">
             <div class="col-md-12">
-            {% for successMessage in successMessages %}
-                <div class="alert alert-success" role="alert">{{ successMessage }}</div>
-            {% endfor %}
+                {% for successMessage in successMessages %}
+                    <div class="alert alert-success" role="alert">{{ successMessage }}</div>
+                {% endfor %}
             </div>
         </div>
     {% endif %}
-    <form method="post" action="admin.php?route=leven" class="form-horizontal">
+    <form method="post" action="admin.php?route=leven" class="form-horizontal" enctype="multipart/form-data">
         <div class="form-group">
             <label class="control-label col-sm-2" for="content">Présentation de Leven:</label>
             <div class="col-sm-10">
-                    <textarea class ="form-control" name="content" id="content" rows="10" cols="80">
+                    <textarea class="form-control" name="content" id="content" rows="10" cols="80">
                         {{ company.content }}
                     </textarea>
             </div>
@@ -38,17 +38,85 @@
             <label class="control-label col-sm-2" for="video_link">Lien vidéo:</label>
             <div class="col-sm-10">
                 {% if company.video_link %}
-                    <input type="url" id="video_link" name="video_link" value="https://youtu.be/{{ company.video_link }}" class="form-control" />
+                    <input type="url" id="video_link" name="video_link" value="https://youtu.be/{{ company.video_link }}" class="form-control"/>
                 {% else %}
-                    <input type="url" id="video_link" name="video_link" value="" class="form-control" />
+                    <input type="url" id="video_link" name="video_link" value="" class="form-control"/>
                 {% endif %}
             </div>
         </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="company_picture1">Image de gauche:</label>
+            <div class="col-sm-10">
+                <label class="btn btn-primary">
+                    <input type="file"
+                           name="company_picture1"
+                           id="company_picture1"
+                           class="inputfile hidden"
+                           accept="image/jpeg, image/gif, image/png, image/svg">
+                    <label for="company_picture1">Choisissez un fichier</label>
+                </label>
+                <p class="form-info">Choisissez ici une image format paysage.</p>
+            </div>
+        </div>
+        {% if company.picture1 %}
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <img class="brand-logo img-thumbnail img-responsive" src="assets/images/uploads/{{ company.picture1 }}" alt="Image du magasin 1">
+                </div>
+            </div>
+        {% endif %}
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="company_picture2">Image centrale:</label>
+            <div class="col-sm-10">
+                <label class="btn btn-primary">
+                    <input type="file"
+                           name="company_picture2"
+                           id="company_picture2"
+                           class="inputfile hidden"
+                           accept="image/jpeg, image/gif, image/png, image/svg">
+                    <label for="company_picture2">Choisissez un fichier</label>
+                </label>
+                <p class="form-info">Choisissez ici une image format paysage.</p>
+            </div>
+        </div>
+        {% if company.picture2 %}
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <img class="brand-logo img-thumbnail img-responsive" src="assets/images/uploads/{{ company.picture2 }}" alt="Image du magasin 2">
+                </div>
+            </div>
+        {% endif %}
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="company_picture3">Image de droite:</label>
+            <div class="col-sm-10">
+                <label class="btn btn-primary">
+                    <input type="file"
+                           name="company_picture3"
+                           id="company_picture3"
+                           class="inputfile hidden"
+                           accept="image/jpeg, image/gif, image/png, image/svg">
+                    <label for="company_picture3">Choisissez un fichier</label>
+                </label>
+                <p class="form-info">Choisissez ici une image format paysage.</p>
+            </div>
+        </div>
+        {% if company.picture3 %}
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <img class="brand-logo img-thumbnail img-responsive" src="assets/images/uploads/{{ company.picture3 }}" alt="Image du magasin 3">
+                </div>
+            </div>
+        {% endif %}
         <div class="row">
             <div class="col-md-12">
-                <p class="text-center"><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-{{ isMod ? 'tick' : 'plus' }}"></span>{{ isMod ? 'Modfier' :
-                        'Ajouter' }}</button></p>
+                <p class="text-center">
+                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-{{ isMod ? 'tick' : 'plus' }}"></span>{{ isMod ? 'Modfier' :
+                        'Ajouter' }}</button>
+                </p>
             </div>
+            {% block preview %}
+                <p class="text-center"><a href="index.php?route=accueil" target="_blank"  class="btn btn-primary" role="button">Voir les modifications</a></p>
+            {% endblock %}
         </div>
     </form>
 {% endblock %}

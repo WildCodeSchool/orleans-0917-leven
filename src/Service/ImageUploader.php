@@ -36,15 +36,6 @@ class ImageUploader
     private $errorMessages;
 
     /**
-     * @param string $fileName
-     * @return string
-     */
-    public static function buildPath(string $fileName)
-    {
-        return self::UPLOAD_DIRECTORY . $fileName;
-    }
-
-    /**
      * @return array
      */
     public function getErrorMessages() : array
@@ -110,7 +101,7 @@ class ImageUploader
         $this->errorMessages = [];
 
         $this->newFileName = 'img_' . uniqid() . '.' . $this->fileExtension;
-        if (!move_uploaded_file($this->file['tmp_name'], self::buildPath($this->newFileName))) {
+        if (!move_uploaded_file($this->file['tmp_name'], self::UPLOAD_DIRECTORY . $this->newFileName)) {
             $this->errorMessages[] = "Erreur lors de l'envoi du fichier '$this->fileName'.";
         }
 

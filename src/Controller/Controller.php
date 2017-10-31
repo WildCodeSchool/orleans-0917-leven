@@ -3,7 +3,6 @@
 namespace Leven\Controller;
 
 use Leven\Model\BrandManager;
-use Leven\Model\Brand;
 use Leven\Service\ImageUploader;
 
 /**
@@ -45,29 +44,39 @@ class Controller
         return $brands;
     }
 
+
     /**
-     * Construit les chemins complets des images pour affichage dans la vue
-     *
-     * @param Brand $brand
+     * @param $imgId
+     * @param array $errorMessages
+     * @return mixed
      */
-    protected function buildBrandPicturePaths(Brand &$brand)
+    protected function createImageUploader($imgId, array &$errorMessages)
     {
-        if (!empty($brand->getLogoPicture())) {
-            $brand->setLogoPicture(
-                ImageUploader::buildPath($brand->getLogoPicture())
-            );
+        $uploader = false;
+        if (!empty($_FILES[$imgId])
+            && $_FILES[$imgId]['error'] !== UPLOAD_ERR_NO_FILE
+        ) {
+            $uploader = new ImageUploader($_FILES[$imgId]);
+
+            if (!$uploader->checkUpload()) {
+                $errorMessages = array_merge($errorMessages, $uploader->getErrorMessages());
+                $uploader = false;
+            }
         }
 
-        if (!empty($brand->getBrandPicture())) {
-            $brand->setBrandPicture(
-                ImageUploader::buildPath($brand->getBrandPicture())
-            );
-        }
+        return $uploader;
+    }
 
-        if (!empty($brand->getModelPicture())) {
-            $brand->setModelPicture(
-                ImageUploader::buildPath($brand->getModelPicture())
-            );
+    /**
+     * @param mixed $fileName
+     */
+    protected function tryDeleteFile($fileName)
+    {
+        if ($fileName != null) {
+            $path = ImageUploader::buildPath($fileName);
+            if (file_exists($path)) {
+                unlink($path);
+            }
         }
     }
 }
