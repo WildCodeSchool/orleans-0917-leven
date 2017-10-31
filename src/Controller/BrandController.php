@@ -17,18 +17,6 @@ class BrandController extends Controller
                 'error.html.twig', ['errorMessage' => 'Cette marque n\'existe plus.']
             );
         } else {
-            if (!empty($brand->getLogoPicture())) {
-                $brand->setLogoPicture('assets/images/uploads/' . $brand->getLogoPicture());
-            }
-
-            if (!empty($brand->getBrandPicture())) {
-                $brand->setBrandPicture('assets/images/uploads/' . $brand->getBrandPicture());
-            }
-
-            if (!empty($brand->getModelPicture())) {
-                $brand->setModelPicture('assets/images/uploads/' . $brand->getModelPicture());
-            }
-
             $response = $this->twig->render(
                 'brand.html.twig',
                 [

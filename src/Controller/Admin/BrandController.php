@@ -15,9 +15,6 @@ class BrandController extends Controller
     public function brandAction()
     {
         $brands = $this->getAllBrands();
-        foreach ($brands as $brand) {
-            $this->buildBrandPicturePaths($brand);
-        }
 
         return $this->twig->render(
             'Admin/brandlist.html.twig',
@@ -78,18 +75,6 @@ class BrandController extends Controller
                     header('Location: admin.php?route=edit-marque&id=' . $brandId);
                     exit;
                 }
-            }
-
-            if (!empty($brand->getLogoPicture())) {
-                $brand->setLogoPicture('assets/images/uploads/' . $brand->getLogoPicture());
-            }
-
-            if (!empty($brand->getBrandPicture())) {
-                $brand->setBrandPicture('assets/images/uploads/' . $brand->getBrandPicture());
-            }
-
-            if (!empty($brand->getModelPicture())) {
-                $brand->setModelPicture('assets/images/uploads/' . $brand->getModelPicture());
             }
 
             $response = $this->twig->render(

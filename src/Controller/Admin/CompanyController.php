@@ -18,7 +18,7 @@ class CompanyController extends Controller
 
         $isMod = false;
         $compagnyManager = new CompanyManager();
-        $company = $compagnyManager->find(1);
+        $company = $compagnyManager->findFirst();
 
         if ($company) {
             $isMod = true;

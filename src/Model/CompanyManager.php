@@ -18,18 +18,13 @@ class CompanyManager extends ModelManager
         return $statement->fetchAll(\PDO::FETCH_CLASS, Company::class);
     }
 
-    public function find(int $id)
+    public function findFirst()
     {
         $req = "SELECT *
           FROM company
-          WHERE id=:id";
-        $statement = $this->pdo->prepare($req);
-        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
-        $statement->execute();
-
-        $statement->setFetchMode(\PDO::FETCH_CLASS, Company::class);
-
-        return $statement->fetch();
+          LIMIT 0,1";
+        $statement = $this->pdo->query($req);
+        return $statement->fetchAll(\PDO::FETCH_CLASS, Company::class);
     }
 
     public function insert(Company $company)
