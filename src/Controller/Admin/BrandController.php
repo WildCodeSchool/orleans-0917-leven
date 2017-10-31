@@ -15,9 +15,6 @@ class BrandController extends Controller
     public function brandAction()
     {
         $brands = $this->getAllBrands();
-        foreach ($brands as $brand) {
-            $this->buildBrandPicturePaths($brand);
-        }
 
         return $this->twig->render(
             'Admin/brandlist.html.twig',
@@ -79,8 +76,6 @@ class BrandController extends Controller
                     exit;
                 }
             }
-
-            $this->buildBrandPicturePaths($brand);
 
             $response = $this->twig->render(
                 'Admin/editbrand.html.twig',
@@ -171,40 +166,5 @@ class BrandController extends Controller
         }
 
         return $result;
-    }
-
-    /**
-     * @param $imgId
-     * @param array $errorMessages
-     * @return mixed
-     */
-    private function createImageUploader($imgId, array &$errorMessages)
-    {
-        $uploader = false;
-        if (!empty($_FILES[$imgId])
-            && $_FILES[$imgId]['error'] !== UPLOAD_ERR_NO_FILE
-        ) {
-            $uploader = new ImageUploader($_FILES[$imgId]);
-
-            if (!$uploader->checkUpload()) {
-                $errorMessages = array_merge($errorMessages, $uploader->getErrorMessages());
-                $uploader = false;
-            }
-        }
-
-        return $uploader;
-    }
-
-    /**
-     * @param mixed $fileName
-     */
-    private function tryDeleteFile($fileName)
-    {
-        if ($fileName != null) {
-            $path = ImageUploader::buildPath($fileName);
-            if (file_exists($path)) {
-                unlink($path);
-            }
-        }
     }
 }

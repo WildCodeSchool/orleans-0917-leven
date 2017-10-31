@@ -17,8 +17,6 @@ class BrandController extends Controller
                 'error.html.twig', ['errorMessage' => 'Cette marque n\'existe plus.']
             );
         } else {
-            $this->buildBrandPicturePaths($brand);
-
             $response = $this->twig->render(
                 'brand.html.twig',
                 [

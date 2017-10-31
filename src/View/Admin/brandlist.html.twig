@@ -8,7 +8,7 @@
     {% for brand in brands %}
         <div class="col-md-4">
             <div class="thumbnail">
-                <img class="brand-logo img-responsive" src="{{ brand.logoPicture }}" alt="Image du logo {{ brand.name }}">
+                <img class="brand-logo img-responsive" src="assets/images/uploads/{{ brand.logoPicture }}" alt="Image du logo {{ brand.name }}">
                 <div class="caption text-center">
                     <h3>{{ brand.name }}</h3>
                     <p><a href="admin.php?route=edit-marque&id={{ brand.id }}" class="btn btn-primary" role="button">Editer</a> <a href="admin.php?route=suppression-marque&id={{ brand.id }}" class="btn btn-danger" role="button">Supprimer</a></p>
