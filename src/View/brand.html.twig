@@ -5,7 +5,7 @@
             <div class="panel panel-brand block-margin">
                 {% if brand.logoPicture %}
                     <div class="panel-body brand-image text-center">
-                        <img class="brand-logo img-responsive" src="{{ brand.logoPicture }}" alt="Logo de la marque">
+                        <img class="brand-logo img-responsive" src="assets/images/uploads/{{ brand.logoPicture }}" alt="Logo de la marque">
                     </div>
                 {% endif %}
                 {% if brand.introductionText %}
@@ -25,22 +25,22 @@
                             {% if brand.brandPicture %}
                                 {% if brand.modelPicture %}
                                     <div class="col-md-8 block-margin">
-                                        <img class="img-responsive" src="{{ brand.brandPicture }}" alt="Photo de présentation">
+                                        <img class="img-responsive" src="assets/images/uploads/{{ brand.brandPicture }}" alt="Photo de présentation">
                                     </div>
                                 {% else %}
                                     <div class="col-md-12">
-                                        <img class="img-responsive" src="{{ brand.brandPicture }}" alt="Photo de présentation">
+                                        <img class="img-responsive" src="assets/images/uploads/{{ brand.brandPicture }}" alt="Photo de présentation">
                                     </div>
                                 {% endif %}
                             {% endif %}
                             {% if brand.modelPicture %}
                                 {% if brand.brandPicture %}
                                     <div class="col-md-4">
-                                        <img class="img-responsive" src="{{ brand.modelPicture }}" alt="Photo du mannequin">
+                                        <img class="img-responsive" src="assets/images/uploads/{{ brand.modelPicture }}" alt="Photo du manequin">
                                     </div>
                                 {% else %}
                                     <div class="col-md-12">
-                                        <img class="img-responsive" src="{{ brand.modelPicture }}" alt="Photo du manequin">
+                                        <img class="img-responsive" src="assets/images/uploads/{{ brand.modelPicture }}" alt="Photo du manequin">
                                     </div>
                                 {% endif %}
                             {% endif %}

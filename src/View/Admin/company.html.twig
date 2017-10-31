@@ -25,7 +25,7 @@
             </div>
         </div>
     {% endif %}
-    <form method="post" action="admin.php?route=leven" class="form-horizontal">
+    <form method="post" action="admin.php?route=leven" class="form-horizontal" enctype="multipart/form-data">
         <div class="form-group">
             <label class="control-label col-sm-2" for="content">Présentation de Leven:</label>
             <div class="col-sm-10">
@@ -44,6 +44,69 @@
                 {% endif %}
             </div>
         </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="company_picture1">Image de gauche:</label>
+            <div class="col-sm-10">
+                <label class="btn btn-primary">
+                    <input type="file"
+                           name="company_picture1"
+                           id="company_picture1"
+                           class="inputfile hidden"
+                           accept="image/jpeg, image/gif, image/png, image/svg">
+                    <label for="company_picture1">Choisissez un fichier</label>
+                </label>
+                <p class="form-info">Choisissez ici une image format paysage.</p>
+            </div>
+        </div>
+        {% if company.picture1 %}
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <img class="brand-logo img-thumbnail img-responsive" src="assets/images/uploads/{{ company.picture1 }}" alt="Image du magasin 1">
+                </div>
+            </div>
+        {% endif %}
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="company_picture2">Image centrale:</label>
+            <div class="col-sm-10">
+                <label class="btn btn-primary">
+                    <input type="file"
+                           name="company_picture2"
+                           id="company_picture2"
+                           class="inputfile hidden"
+                           accept="image/jpeg, image/gif, image/png, image/svg">
+                    <label for="company_picture2">Choisissez un fichier</label>
+                </label>
+                <p class="form-info">Choisissez ici une image format paysage.</p>
+            </div>
+        </div>
+        {% if company.picture2 %}
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <img class="brand-logo img-thumbnail img-responsive" src="assets/images/uploads/{{ company.picture2 }}" alt="Image du magasin 2">
+                </div>
+            </div>
+        {% endif %}
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="company_picture3">Image de droite:</label>
+            <div class="col-sm-10">
+                <label class="btn btn-primary">
+                    <input type="file"
+                           name="company_picture3"
+                           id="company_picture3"
+                           class="inputfile hidden"
+                           accept="image/jpeg, image/gif, image/png, image/svg">
+                    <label for="company_picture3">Choisissez un fichier</label>
+                </label>
+                <p class="form-info">Choisissez ici une image format paysage.</p>
+            </div>
+        </div>
+        {% if company.picture3 %}
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <img class="brand-logo img-thumbnail img-responsive" src="assets/images/uploads/{{ company.picture3 }}" alt="Image du magasin 3">
+                </div>
+            </div>
+        {% endif %}
         <div class="row">
             <div class="col-md-12">
                 <p class="text-center">

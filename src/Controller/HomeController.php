@@ -9,7 +9,7 @@ class HomeController extends Controller
     public function homeAction()
     {
         $compagnyManager = new CompanyManager();
-        $company = $compagnyManager->find(1);
+        $company = $compagnyManager->findFirst();
 
         return $this->twig->render(
             'home.html.twig',
