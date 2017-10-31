@@ -34,7 +34,7 @@
                        placeholder="Entrez le nom de la marque"
                        maxlength="30"
                        value="{{ brand.name }}">
-                <p class="form-info">Entrez ici le nom de la marque, le texte ne doit pas dépasser 30 caractères.</p>
+                <p class="form-info">Entrez le nom de la marque, le texte ne doit pas dépasser 30 caractères.</p>
             </div>
 
         </div>
@@ -49,7 +49,7 @@
                            accept="image/jpeg, image/gif, image/png, image/svg">
                     <label for="logo_picture">Choisissez un fichier</label>
                 </label>
-                <p class="form-info">Choisissez ici une image rectangulaire ayant environ une dimenssion de 200 par 150 pixels.</p>
+                <p class="form-info">Choisissez une image de format paysage de 200*150 px.</p>
             </div>
         </div>
         {% if brand.logoPicture %}
@@ -79,7 +79,7 @@
                            accept="image/jpeg, image/gif, image/png, image/svg">
                     <label for="brand_picture">Choisissez un fichier</label>
                 </label>
-                <p class="form-info">Choisissez ici une image rectangulaire ayant environ une dimenssion de 1920 par 1080 pixels.</p>
+                <p class="form-info">Choisissez une image de format paysage de 1920*1080 px.</p>
             </div>
         </div>
         {% if brand.brandPicture %}
@@ -91,7 +91,7 @@
             </div>
         {% endif %}
         <div class="form-group">
-            <label class="control-label col-sm-2" for="model_picture">Image du manequin:</label>
+            <label class="control-label col-sm-2" for="model_picture">Image du mannequin:</label>
             <div class="col-sm-10">
                 <label class="btn btn-primary">
                     <input type="file"
@@ -101,8 +101,8 @@
                            accept="image/jpeg, image/gif, image/png, image/svg">
                     <label for="model_picture">Choisissez un fichier</label>
                 </label>
-                <p class="form-info">Choisissez ici une image rectangulaire (mode portrait) ayant environ une dimenssion de 400 par 1080 pixels.</p>
-                <p class="form-info">Aussi elle devrait avoir exactement le même hauteur que l'image de la marque afin que sa position soit optimisée.</p>
+                <p class="form-info">Choisissez une image de format portrait de 400*1080 px.</p>
+
             </div>
         </div>
         {% if brand.modelPicture %}
@@ -121,9 +121,15 @@
                 </textarea>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-12">
                 <p class="text-center">{% block button_submit %}{% endblock %}</p>
+            </div>
+            {% block preview %}
+            {% endblock %}
+            <div class="col-md-12">
+                <p class="text-center"><a href="admin.php?route=marques" class="btn btn-primary" role="button">Liste des marques</a></p>
             </div>
         </div>
     </form>

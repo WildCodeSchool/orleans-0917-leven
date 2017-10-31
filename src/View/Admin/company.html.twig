@@ -10,18 +10,18 @@
     {% if errorMessages %}
         <div class="row">
             <div class="col-md-12">
-            {% for errorMessage in errorMessages %}
-                <div class="alert alert-danger" role="alert">{{ errorMessage }}</div>
-            {% endfor %}
+                {% for errorMessage in errorMessages %}
+                    <div class="alert alert-danger" role="alert">{{ errorMessage }}</div>
+                {% endfor %}
             </div>
         </div>
     {% endif %}
     {% if successMessages %}
         <div class="row">
             <div class="col-md-12">
-            {% for successMessage in successMessages %}
-                <div class="alert alert-success" role="alert">{{ successMessage }}</div>
-            {% endfor %}
+                {% for successMessage in successMessages %}
+                    <div class="alert alert-success" role="alert">{{ successMessage }}</div>
+                {% endfor %}
             </div>
         </div>
     {% endif %}
@@ -29,7 +29,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="content">Présentation de Leven:</label>
             <div class="col-sm-10">
-                    <textarea class ="form-control" name="content" id="content" rows="10" cols="80">
+                    <textarea class="form-control" name="content" id="content" rows="10" cols="80">
                         {{ company.content }}
                     </textarea>
             </div>
@@ -38,9 +38,9 @@
             <label class="control-label col-sm-2" for="video_link">Lien vidéo:</label>
             <div class="col-sm-10">
                 {% if company.video_link %}
-                    <input type="url" id="video_link" name="video_link" value="https://youtu.be/{{ company.video_link }}" class="form-control" />
+                    <input type="url" id="video_link" name="video_link" value="https://youtu.be/{{ company.video_link }}" class="form-control"/>
                 {% else %}
-                    <input type="url" id="video_link" name="video_link" value="" class="form-control" />
+                    <input type="url" id="video_link" name="video_link" value="" class="form-control"/>
                 {% endif %}
             </div>
         </div>
@@ -109,9 +109,14 @@
         {% endif %}
         <div class="row">
             <div class="col-md-12">
-                <p class="text-center"><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-{{ isMod ? 'tick' : 'plus' }}"></span>{{ isMod ? 'Modfier' :
-                        'Ajouter' }}</button></p>
+                <p class="text-center">
+                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-{{ isMod ? 'tick' : 'plus' }}"></span>{{ isMod ? 'Modfier' :
+                        'Ajouter' }}</button>
+                </p>
             </div>
+            {% block preview %}
+                <p class="text-center"><a href="index.php?route=accueil" target="_blank"  class="btn btn-primary" role="button">Voir les modifications</a></p>
+            {% endblock %}
         </div>
     </form>
 {% endblock %}
