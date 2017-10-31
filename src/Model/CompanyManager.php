@@ -24,7 +24,11 @@ class CompanyManager extends ModelManager
           FROM company
           LIMIT 0,1";
         $statement = $this->pdo->query($req);
-        return $statement->fetchAll(\PDO::FETCH_CLASS, Company::class);
+        $result = $statement->fetchAll(\PDO::FETCH_CLASS, Company::class);
+        if ($result) {
+            $result = $result[0];
+        }
+        return $result;
     }
 
     public function insert(Company $company)
