@@ -11,7 +11,13 @@
     <img class="brand-logo img-thumbnail img-responsive" src="{{ brand.brandPicture }}" alt="Image du magasin - partie {{ brand.name }}">
 {% endblock %}
 {% block model_picture %}
-    <img class="brand-logo img-thumbnail img-responsive" src="{{ brand.modelPicture }}" alt="Image du manequin - partie {{ brand.name }}">
+    <img class="brand-logo img-thumbnail img-responsive" src="{{ brand.modelPicture }}" alt="Image du mannequin - partie {{ brand.name }}">
 {% endblock %}
 
-{% block button_submit %}<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-tick"></span> Modifier</button>{% endblock %}
+{% block button_submit %}
+    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-tick"></span> Modifier</button>
+{% endblock %}
+
+{% block preview %}
+    <p class="text-center"><a href="index.php?route=marque&id={{ brand.id }}" target="_blank"  class="btn btn-primary" role="button">Voir les modifications</a></p>
+{% endblock %}

@@ -50,7 +50,7 @@
                            hidden>
                     <label for="logo_picture">Choisissez un fichier</label>
                 </label>
-                <p class="form-info">Choisissez ici une image rectangulaire ayant environ une dimenssion de 200 par 150 pixels.</p>
+                <p class="form-info">Choisissez ici une image rectangulaire ayant environ une dimension de 200 par 150 pixels.</p>
             </div>
         </div>
         {% if brand.logoPicture %}
@@ -81,7 +81,7 @@
                            hidden>
                     <label for="brand_picture">Choisissez un fichier</label>
                 </label>
-                <p class="form-info">Choisissez ici une image rectangulaire ayant environ une dimenssion de 1920 par 1080 pixels.</p>
+                <p class="form-info">Choisissez ici une image rectangulaire ayant environ une dimension de 1920 par 1080 pixels.</p>
             </div>
         </div>
         {% if brand.brandPicture %}
@@ -104,7 +104,7 @@
                            hidden>
                     <label for="model_picture">Choisissez un fichier</label>
                 </label>
-                <p class="form-info">Choisissez ici une image rectangulaire (mode portrait) ayant environ une dimenssion de 400 par 1080 pixels.</p>
+                <p class="form-info">Choisissez ici une image rectangulaire (mode portrait) ayant environ une dimension de 400 par 1080 pixels.</p>
                 <p class="form-info">Aussi elle devrait avoir exactement le même hauteur que l'image de la marque afin que sa position soit optimisée.</p>
             </div>
         </div>
@@ -124,9 +124,15 @@
                 </textarea>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-12">
                 <p class="text-center">{% block button_submit %}{% endblock %}</p>
+            </div>
+            {% block preview %}
+            {% endblock %}
+            <div class="col-md-12">
+                <p class="text-center"><a href="admin.php?route=marques" class="btn btn-primary" role="button">Liste des marques</a></p>
             </div>
         </div>
     </form>
