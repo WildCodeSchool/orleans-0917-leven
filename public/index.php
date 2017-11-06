@@ -6,6 +6,7 @@ require '../connect.php';
 use Leven\Controller\HomeController;
 use Leven\Controller\BrandController;
 use Leven\Controller\ErrorController;
+use Leven\Controller\MentionsController;
 
 if (!empty($_GET['route'])) {
     $route = $_GET['route'];
@@ -25,6 +26,10 @@ if ($route == 'accueil') {
         $errorController = new ErrorController();
         echo $errorController->notFoundAction();
     }
+} elseif ($route == 'mentions') {
+    $mentionsController = new MentionsController();
+    echo $mentionsController->mentionsAction();
+
 } else {
     $errorController = new ErrorController();
     echo $errorController->notFoundAction();
