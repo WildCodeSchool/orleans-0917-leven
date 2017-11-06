@@ -100,6 +100,11 @@ body {
     text-align: center;
 }
 
+.dropdown-menu-center {
+    right: auto !important;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
 .dropdown-menu>li>a {
     font-family: 'Tenor Sans Regular', sans-serif;
     font-size: 1.4em;
@@ -321,10 +326,11 @@ body {
     .dropdown:hover .dropdown-menu {
         display: block;
     }
+
     .navbar-right .dropdown-menu {
-        left: -13px;
-        border: none;
-        border-radius: 0;
+        right: auto !important;
+        left:50%;
+        transform: translate(-50%, 0);
     }
 }
 
