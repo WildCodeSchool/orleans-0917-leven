@@ -8,8 +8,8 @@ class HomeController extends Controller
 {
     public function homeAction()
     {
-        $compagnyManager = new CompanyManager();
-        $company = $compagnyManager->findFirst();
+        $companyManager = new CompanyManager();
+        $company = $companyManager->findFirst();
 
         return $this->twig->render(
             'home.html.twig',
