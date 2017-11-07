@@ -73,7 +73,7 @@ class Controller
     protected function tryDeleteFile($fileName)
     {
         if ($fileName != null) {
-            $path = ImageUploader::UPLOAD_DIRECTORY . $fileName;
+            $path = 'assets/images/uploads/' . $fileName;
             if (file_exists($path)) {
                 unlink($path);
             }
