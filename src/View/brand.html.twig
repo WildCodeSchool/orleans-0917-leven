@@ -1,4 +1,8 @@
 {% extends 'base.html.twig' %}
+{% block css %}
+    {{ parent() }}
+    <link href="index.php?route=brand-style&id={{ brand.id }}" rel="stylesheet">
+{% endblock %}
 {% block content %}
     <div class="row">
         <div class="col-xs-12 col-md-offset-1 col-md-10">
@@ -21,29 +25,17 @@
             {% if brand.brandPicture or brand.modelPicture %}
                 <div class="panel panel-brand">
                     <div class="panel-body">
-                        <div class="row">
-                            {% if brand.brandPicture %}
-                                {% if brand.modelPicture %}
-                                    <div class="col-md-8 block-margin">
-                                        <img class="img-responsive" src="assets/images/uploads/{{ brand.brandPicture }}" alt="Photo de présentation">
-                                    </div>
-                                {% else %}
-                                    <div class="col-md-12">
-                                        <img class="img-responsive" src="assets/images/uploads/{{ brand.brandPicture }}" alt="Photo de présentation">
-                                    </div>
-                                {% endif %}
-                            {% endif %}
-                            {% if brand.modelPicture %}
+                        <div class="brand-img-group">
+                            <div class="brand-img-container brand-img-container-left text-center">
                                 {% if brand.brandPicture %}
-                                    <div class="col-md-4">
-                                        <img class="img-responsive" src="assets/images/uploads/{{ brand.modelPicture }}" alt="Photo du manequin">
-                                    </div>
-                                {% else %}
-                                    <div class="col-md-12">
-                                        <img class="img-responsive" src="assets/images/uploads/{{ brand.modelPicture }}" alt="Photo du manequin">
-                                    </div>
+                                    <img class="brand-img" src="assets/images/uploads/{{ (brand.modelPicturePosition == true) ? brand.modelPicture : brand.brandPicture }}" alt="Photo de présentation dans le magasin">
                                 {% endif %}
-                            {% endif %}
+                            </div>
+                            <div class="brand-img-container brand-img-container-right text-center">
+                                {% if brand.modelPicture %}
+                                    <img class="brand-img" src="assets/images/uploads/{{ (brand.modelPicturePosition == false) ? brand.modelPicture : brand.brandPicture }}" alt="Photo de présentation du manequin">
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                     {% if brand.articleText %}

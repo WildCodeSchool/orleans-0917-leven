@@ -40,6 +40,10 @@ body {
     font-weight:bold
 }
 
+.hidden {
+    display: none;
+}
+
 /* Navbar */
 .logo {
     position: relative; width: 135px;
@@ -178,64 +182,10 @@ body {
 }
 
 /* brand page */
-.hidden {
-    display: none;
-}
-
-.panel-brand {
-    background-color: transparent;
-    border: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-
-.brand-logo {
-    max-height: 150px;
-}
-
-.brand-image > img {
-    display: inline;
-    width: auto;
-}
 
 .block-margin {
     margin-top: 20px;
     margin-bottom: 50px;
-}
-
-.brand-text {
-    background-color: transparent;
-    border-top: none;
-}
-
-.brand-text > ol {
-    margin-left: 0;
-    padding-right: 0;
-    list-style-type: none;
-}
-
-.brand-text > ol > li {
-    counter-increment: step-counter;
-    display: inline-block;
-    margin-top: 5px;
-}
-
-.brand-text > ol > li:before {
-    content: counter(step-counter);
-    margin-right: 5px;
-    margin-left: 5px;
-    font-size: 80%;
-    background-color: #1A2B3C;
-    color: white;
-    font-weight: bold;
-    padding: 3px 8px;
-    border-radius: 2px;
-}
-
-.form-info {
-    color: #1A2B3C;
-    font-size: 0.88em;
-    font-style: italic;
 }
 
 /* Footer */

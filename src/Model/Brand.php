@@ -11,6 +11,7 @@ class Brand
     private $brand_picture;
     private $model_picture;
     private $article_text;
+    private $model_picture_position = false;
 
     /**
      * @return mixed
@@ -135,6 +136,24 @@ class Brand
     public function setModelPicture($model_picture)
     {
         $this->model_picture = $model_picture;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getModelPicturePosition() : bool
+    {
+        return $this->model_picture_position;
+    }
+
+    /**
+     * @param mixed $model_picture_position
+     * @return Brand
+     */
+    public function setModelPicturePosition(bool $model_picture_position)
+    {
+        $this->model_picture_position = $model_picture_position;
         return $this;
     }
 }

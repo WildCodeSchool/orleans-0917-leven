@@ -1,4 +1,8 @@
 {% extends 'base.html.twig' %}
+{% block css %}
+    {{ parent() }}
+    <link href="index.php?route=brand-style&id={{ brand.id }}" rel="stylesheet">
+{% endblock %}
 {% block navbar %}
     {% include 'Admin/adminnavbar.html.twig' %}
 {% endblock %}
@@ -51,15 +55,13 @@
                 </label>
                 <p class="form-info">Choisissez une image de format paysage de 200*150 px.</p>
             </div>
-        </div>
-        {% if brand.logoPicture %}
-            <div class="form-group">
+            {% if brand.logoPicture %}
                 <div class="col-sm-10 col-sm-offset-2">
                     {% block logo_picture %}
                     {% endblock %}
                 </div>
-            </div>
-        {% endif %}
+            {% endif %}
+        </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="introduction_text">Présentation:</label>
             <div class="col-sm-10">
@@ -102,7 +104,6 @@
                     <label for="model_picture">Choisissez un fichier</label>
                 </label>
                 <p class="form-info">Choisissez une image de format portrait de 400*1080 px.</p>
-
             </div>
         </div>
         {% if brand.modelPicture %}
@@ -113,6 +114,15 @@
                 </div>
             </div>
         {% endif %}
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="model_picture_position">Position de l'image du manequin:</label>
+            <div class="col-sm-10">
+                <input type="radio" id="model_picture_position1" name="model_picture_position" value="1"{{ (brand.modelPicturePosition == true) ? ' checked' : '' }}>
+                <label for="model_picture_position1">Gauche</label>
+                <input type="radio" id="model_picture_position2" name="model_picture_position" value="0"{{ (brand.modelPicturePosition == false) ? ' checked' : '' }}>
+                <label for="model_picture_position2">Droite</label>
+            </div>
+        </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="article_text">Texte de l'article:</label>
             <div class="col-sm-10">
