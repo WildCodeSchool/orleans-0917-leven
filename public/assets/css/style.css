@@ -272,6 +272,14 @@ body {
     margin-bottom: 8px;
 }
 
+.mentions {
+    padding-bottom: 15px;
+}
+
+.mentions>p {
+    padding-left: 20px;
+}
+
 
 @media (min-width: 767px) {
     .dropdown:hover .dropdown-menu {
