@@ -5,7 +5,6 @@ namespace Leven\Controller\Admin;
 use Leven\Controller\Controller;
 use Leven\Model\Brand;
 use Leven\Model\BrandManager;
-use Leven\Service\ImageUploader;
 
 class BrandController extends Controller
 {
@@ -116,7 +115,7 @@ class BrandController extends Controller
 
         $name = trim($_POST['name']);
         if (!empty($name)) {
-            if (strlen($name) < 30) {
+            if (strlen($name) <= 30) {
                 $brand->setName(ucwords($name));
             } else {
                 $errorMessages[] = 'Vous ne devez pas dépasser 30 caractères pour le nom de la marque.';
@@ -131,6 +130,16 @@ class BrandController extends Controller
 
         if (!empty($_POST['article_text'])) {
             $brand->setArticleText($_POST['article_text']);
+        }
+
+        if (!empty($_POST['model_picture_position'])) {
+            if ($_POST['model_picture_position'] == '1') {
+                $brand->setModelPicturePosition(true);
+            } else {
+                $brand->setModelPicturePosition(false);
+            }
+        } else {
+            $brand->setModelPicturePosition(false);
         }
 
         foreach ($uploaders as $imgId => $uploader) {

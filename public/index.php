@@ -3,6 +3,7 @@
 require '../vendor/autoload.php';
 require '../connect.php';
 
+use Leven\Controller\BrandStyleController;
 use Leven\Controller\HomeController;
 use Leven\Controller\BrandController;
 use Leven\Controller\ErrorController;
@@ -18,7 +19,6 @@ if ($route == 'accueil') {
     $homeController = new HomeController();
     echo $homeController->homeAction();
 } elseif ($route == 'marque') {
-    $id = '';
     if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
         $brandController = new BrandController();
         echo $brandController->brandAction($_GET['id']);
@@ -26,10 +26,18 @@ if ($route == 'accueil') {
         $errorController = new ErrorController();
         echo $errorController->notFoundAction();
     }
+} elseif ($route == 'brand-style') {
+    if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
+        $brandStyleController = new BrandStyleController();
+        header('Content-Type: text/css');
+        echo $brandStyleController->brandStyleAction($_GET['id']);
+    } else {
+        $errorController = new ErrorController();
+        echo $errorController->notFoundAction();
+    }
 } elseif ($route == 'mentions') {
     $mentionsController = new MentionsController();
     echo $mentionsController->mentionsAction();
-
 } else {
     $errorController = new ErrorController();
     echo $errorController->notFoundAction();

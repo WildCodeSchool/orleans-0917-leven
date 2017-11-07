@@ -39,8 +39,8 @@ class BrandManager extends ModelManager
     public function insert(Brand $brand): string
     {
         $query = "INSERT INTO brand
-                  (name, introduction_text, logo_picture, brand_picture, model_picture, article_text)
-                  VALUES (:name, :introduction_text, :logo_picture, :brand_picture, :model_picture, :article_text)";
+                  (name, introduction_text, logo_picture, brand_picture, model_picture, article_text, model_picture_position)
+                  VALUES (:name, :introduction_text, :logo_picture, :brand_picture, :model_picture, :article_text, :model_picture_position)";
 
         $statement = $this->pdo->prepare($query);
 
@@ -50,6 +50,7 @@ class BrandManager extends ModelManager
         $statement->bindValue(':brand_picture', $brand->getBrandPicture(), \PDO::PARAM_STR);
         $statement->bindValue(':model_picture', $brand->getModelPicture(), \PDO::PARAM_STR);
         $statement->bindValue(':article_text', $brand->getArticleText(), \PDO::PARAM_STR);
+        $statement->bindValue(':model_picture_position', $brand->getModelPicturePosition(), \PDO::PARAM_BOOL);
 
         $statement->execute();
 
@@ -67,7 +68,8 @@ class BrandManager extends ModelManager
                    logo_picture=:logo_picture,
                    brand_picture=:brand_picture,
                    model_picture=:model_picture,
-                   article_text=:article_text
+                   article_text=:article_text,
+                   model_picture_position=:model_picture_position
                   WHERE id=:id";
 
         $statement = $this->pdo->prepare($query);
@@ -79,6 +81,7 @@ class BrandManager extends ModelManager
         $statement->bindValue(':brand_picture', $brand->getBrandPicture(), \PDO::PARAM_STR);
         $statement->bindValue(':model_picture', $brand->getModelPicture(), \PDO::PARAM_STR);
         $statement->bindValue(':article_text', $brand->getArticleText(), \PDO::PARAM_STR);
+        $statement->bindValue(':model_picture_position', $brand->getModelPicturePosition(), \PDO::PARAM_BOOL);
 
         $statement->execute();
     }
